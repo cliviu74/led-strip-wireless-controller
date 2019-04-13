@@ -26,5 +26,5 @@
 ##Schematic
 Fritzing schematic can be downloaded and edited in this repo [Friting schematic](schematic/led-strip-wireless-controller.fzz)
 
-Here's the Schematic
-![Schematic](schematic/wireless led strip controller_bb.png)
+## Schematic
+![Schematic](schematic/wireless_led_strip_controller_bb.png)
