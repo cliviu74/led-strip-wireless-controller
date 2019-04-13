@@ -4,8 +4,8 @@
 - readily available parts
 - low power consumption when idle
 - reliable, this will be powered on 24x7
-- MQTT controllable, I use Home Assistant for my home automation needs
-- easy upgradable firmware. Sonoff-Tasmota is brilliant for this, very active project, supports OTA updates.
+- MQTT controllable, I use [Home Assistant](https://github.com/home-assistant/home-assistant) for my home automation needs
+- easy upgradable firmware. [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) is brilliant for this, very active project, supports OTA updates.
 
 ## Shopping list, bill of materials
 - wemos d1 mini board, [Aliexpress](https://www.aliexpress.com/item/D1-mini-Mini-NodeMcu-4M-bytes-Lua-WIFI-Internet-of-Things-development-board-based-ESP8266-by/32631693796.html?spm=2114.search0104.3.2.6e7b4f8dfdnbvQ&ws_ab_test=searchweb0_0,searchweb201602_9_10065_10068_319_10059_10884_317_10887_10696_321_322_10084_453_10083_454_10103_10618_10304_10307_10820_10821_537_10302_536,searchweb201603_80,ppcSwitch_0&algo_expid=1861050a-e1ad-4a70-8436-a3a60d32f714-0&algo_pvid=1861050a-e1ad-4a70-8436-a3a60d32f714&transAbTest=ae803_4), € 1,81
@@ -22,9 +22,23 @@
 - wire clippers, screwdrivers, 
 - solder
 - laptop for programming the board (goes without saying you have one handy, since I hope you're not reading this page on paper :) )
-- software for the initial firmware upload to the wemos board. I personally use [Esptool](https://github.com/arendst/Sonoff-Tasmota/wiki/Esptool) or [VSCode](https://code.visualstudio.com/) with the [PlatformIO plugin](https://docs.platformio.org/en/latest/ide/vscode.html). You can also use Arduino IDE 
-##Schematic
-Fritzing schematic can be downloaded and edited in this repo [Friting schematic](schematic/led-strip-wireless-controller.fzz)
+- software for the initial firmware upload to the wemos board. I personally use [Esptool](https://github.com/arendst/Sonoff-Tasmota/wiki/Esptool) or [VSCode](https://code.visualstudio.com/) with the [PlatformIO plugin](https://docs.platformio.org/en/latest/ide/vscode.html). You can also use [Arduino IDE](https://www.arduino.cc/en/main/software)
 
 ## Schematic
+Fritzing schematic can be downloaded and edited in this repo [Friting schematic](schematic/led-strip-wireless-controller.fzz)
+
 ![Schematic](schematic/wireless_led_strip_controller_bb.png)
+
+## Firmware installation 
+
+I've used Esptool for this upload, so I will cover this procedure in this document. Tasmota has covered firmware upload using different tools extensively. 
+
+```
+✗ curl -L https://github.com/arendst/Sonoff-Tasmota/releases/download/v6.5.0/sonoff.bin -o sonoff.bin
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   600    0   600    0     0   1127      0 --:--:-- --:--:-- --:--:--  1129
+100  507k  100  507k    0     0   208k      0  0:00:02  0:00:02 --:--:--  348k
+✗ esptool.py --port /dev/tty.wchusbserial1420 erase_flash
+✗ esptool.py --port /dev/tty.wchusbserial1420 write_flash -fs 1MB -fm dout 0x0 firmware/sonoff.bin
+```
