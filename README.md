@@ -25,5 +25,6 @@
 - software for the initial firmware upload to the wemos board. I personally use [Esptool](https://github.com/arendst/Sonoff-Tasmota/wiki/Esptool) or [VSCode](https://code.visualstudio.com/) with the [PlatformIO plugin](https://docs.platformio.org/en/latest/ide/vscode.html). You can also use Arduino IDE 
 ##Schematic
 Fritzing schematic can be downloaded and edited in this repo [Friting schematic](schematic/led-strip-wireless-controller.fzz)
-[Schematic]
-(schematic/wireless led strip controller_bb.png)
+
+Here's the Schematic
+![Schematic](schematic/wireless led strip controller_bb.png)
