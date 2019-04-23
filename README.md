@@ -42,3 +42,6 @@ I've used Esptool for this upload, so I will cover this procedure in this docume
 ✗ esptool.py --port /dev/tty.wchusbserial1420 erase_flash
 ✗ esptool.py --port /dev/tty.wchusbserial1420 write_flash -fs 1MB -fm dout 0x0 firmware/sonoff.bin
 ```
+## End result
+Once tested on a breadbord, I started soldering evering and tucked all boards neatly in a project box. The end result is here:
+![Schematic](schematic/wireless_led_strip_controller_box.jpg)
